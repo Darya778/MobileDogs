@@ -28,12 +28,18 @@
 
 ### Необходимые запросы для реализации сценариев:
 1. POST request для регистрации пользователей
-2. POST request для регистрации ошейников
-3. POST request для привязки ошейников и пользователей
-4. GET request для отправки оповещений пользователям
-5. POST и DELETE request для модерации пользователей и данных
-6. POST request для создания заданий для пользователей
-7. GET request для проверки верификации выполненных заданий
+     * *id_user, login, password, email, gender, phone, birthday(?)*
+3. POST request для регистрации ошейников
+     * *id_collar, name_dog, temp, feeling_hungry(?), health_status*
+5. POST request для привязки ошейников и пользователей
+     * *id_user, id_collar*
+7. GET request для отправки оповещений пользователям
+     * *id_user, text_alert*
+9. POST и DELETE request для модерации пользователей и данных
+     * *id_user, ???*
+11. POST request для создания заданий для пользователей
+     * *id_user_1, id_user_2, id_task*
+13. GET request для проверки верификации выполненных заданий
 
 ### Инструкции для установки зависимостей и запуска приложения:
    *в разработке*
