@@ -37,7 +37,7 @@
      * *id_user, text_alert*
 9. POST и DELETE request для модерации пользователей и данных
      * delete - *id_user/id_collar*
-     * post(изменение состояния собаки) - *id_collar, temp, feeling_hungry(?), health_status*
+     * post(изменение состояния собаки) - *id_collar, temp, feeling_hungry, health_status*
 11. POST request для создания заданий для пользователей
      * *id_user_1, id_user_2, id_task, text_task(?)*
 13. GET request для проверки верификации выполненных заданий
