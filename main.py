@@ -57,11 +57,12 @@ def register_collar(uni_num_dog: int, name_dog: str, temp: float, feeling_hungry
         raise Exception("404: This dog`s collar is already registered")
 
     # Если номер ошейника уникален, добавляем его в базу
-    cursor.execute(f"INSERT INTO dogs_collar (uni_num_dog, login, password, email, gender, phone, birthday) VALUES ({uni_num_dog}, {login}, {password}, {email}, {gender}, {phone}, {birthday})")
+    cursor.execute(f"INSERT INTO dogs_collar (uni_num_dog, name_dog, temp, feeling_hungry, health_status) VALUES ({uni_num_dog}, {name_dog}, {temp}, {feeling_hungry}, {health_status})")
     conn.commit()
     conn.close()
   
     #collars_db[id_collar] = {
+    #    "uni_num_dog": uni_num_dog,
     #    "name_dog": name_dog,
     #    "temp": temp,
     #    "feeling_hungry": feeling_hungry,
