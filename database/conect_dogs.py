@@ -18,44 +18,33 @@ class DatabaseManager:
         self.Session = sessionmaker(bind=self.engine)
         self.session = self.Session()
         self.Base = declarative_base()
-     def add_user(self, login, password, email, gender=None, phone=None, birthday=None):
-
-        # Создаем нового пользователя
-        new_user = User(login=login, password=password, email=email, gender=gender, phone=phone, birthday=birthday)
-
-        # Добавляем пользователя в сессию
-        self.session.add(new_user)
-        # Фиксируем изменения в базе данных
+     def add_record(self, model, **kwargs):
+        new_record = model(**kwargs)
+        self.session.add(new_record)
         self.session.commit()
-        print("Пользователь успешно добавлен.")
+        print(f"Запись успешно добавлена в таблицу {model.__tablename__}.")
 
-    def update_user(self, user_id, **kwargs):
-
-        # Находим пользователя по user_id
-        user = self.session.query(User).filter_by(id=user_id).first()
-
-        if user:
-            # Обновляем атрибуты пользователя на основе переданных параметров
+    def update_record(self, model, record_id, **kwargs):
+        record = self.session.query(model).filter_by(id=record_id).first()
+        
+        if record:
             for key, value in kwargs.items():
-                setattr(user, key, value)
-            # Фиксируем изменения в базе данных
+                setattr(record, key, value)
             self.session.commit()
-            print(f"Пользователь с ID {user_id} успешно обновлен.")
+            print(f"Запись с ID {record_id} успешно обновлена в таблице {model.__tablename__}.")
         else:
-            print(f"Пользователь с ID {user_id} не найден.")
-    def delete_user(self, user_id):
-        # Находим пользователя по user_id
-        user = self.session.query(User).filter_by(id=user_id).first()
-        if user:
-            # Удаляем пользователя из сессии
-            self.session.delete(user)
-            # Фиксируем изменения в базе данных
+            print(f"Запись с ID {record_id} не найдена в таблице {model.__tablename__}.")
+            
+    def delete_record(self, model, record_id):
+        record = self.session.query(model).filter_by(id=record_id).first()
+        
+        if record:
+            self.session.delete(record)
             self.session.commit()
-            print(f"Пользователь с ID {user_id} удалён.")
+            print(f"Запись с ID {record_id} удалена из таблицы {model.__tablename__}.")
         else:
-            print(f"Пользователь с ID {user_id} не найден.")
-
-
+            print(f"Запись с ID {record_id} не найдена в таблице {model.__tablename__}.")
+            
 class User(Base):
     __tablename__ = 'users'
 
