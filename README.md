@@ -44,8 +44,14 @@
      * *id_user_1, id_user_2, id_task, confirm(true/false)*
 
 ### Инструкции для установки зависимостей и запуска приложения:
-   *в разработке*
-
+Установка зависимостей:
+```python
+pip install -r requirements.txt 
+```
+Запуск приложения:  
+```
+uvicorn fast:app --reload
+```
 
 
 
