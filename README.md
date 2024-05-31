@@ -79,7 +79,7 @@ git clone URL
 3. Создайте новую виртуальную среду и активируйте:
 ```
 python -m venv venv
-source .venv/bin/activate
+source venv/bin/activate
 ```
 4. Запустите приложение с помощью команды:
 ```
