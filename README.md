@@ -60,6 +60,7 @@ source venv/bin/activate
 ```
 4. Установите зависимости из файла requirements.txt. Запустите команду:
 ```
+python -m pip install --upgrade pip
 pip install -r requirements.txt 
 ```
 
