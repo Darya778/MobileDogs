@@ -78,7 +78,7 @@ def get_track(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/tasks/", response_model=Tuple[int,str])
+@router.post("/tasks/", response_model=Tuple[int,str])
 def create_task(task: TaskCreate, db: Session = Depends(get_db)):
     try:
         task_id=db_manager.add_task(db, **task.dict())
@@ -86,7 +86,7 @@ def create_task(task: TaskCreate, db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.put("/tasks/{task_id}", response_model=str)
+@router.put("/tasks/{task_id}", response_model=str)
 def update_task(task_id: int, task_update: TaskUpdate, db: Session = Depends(get_db)):
     try:
         db_manager.update_task(db, task_id, **task_update.dict(exclude_unset=True))
@@ -94,7 +94,7 @@ def update_task(task_id: int, task_update: TaskUpdate, db: Session = Depends(get
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.delete("/tasks/{task_id}", response_model=str)
+@router.delete("/tasks/{task_id}", response_model=str)
 def delete_task(task_id: int, db: Session = Depends(get_db)):
     try:
         db_manager.archive_task(db, task_id)
@@ -103,7 +103,7 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 # Эндпоинты для связи пользователя с ошейником (UserDogCollar)
-@app.post("/user-dog-collars/", response_model=Tuple[int,int,str])
+@router.post("/user-dog-collars/", response_model=Tuple[int,int,str])
 def create_user_dog_collar(binding: UserDogCollarCreate, db: Session = Depends(get_db)):
     try:
         userid,dogid= db_manager.add_user_dog_collar(db, **binding.dict())
@@ -111,7 +111,7 @@ def create_user_dog_collar(binding: UserDogCollarCreate, db: Session = Depends(g
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.put("/user-dog-collars/{binding_id}", response_model=str)
+@router.put("/user-dog-collars/{binding_id}", response_model=str)
 def update_user_dog_collar(binding_id: int, binding_update: UserDogCollarUpdate, db: Session = Depends(get_db)):
     try:
         db_manager.update_user_dog_collar(db, binding_id, **binding_update.dict(exclude_unset=True))
@@ -119,7 +119,7 @@ def update_user_dog_collar(binding_id: int, binding_update: UserDogCollarUpdate,
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.delete("/user-dog-collars/{binding_id}", response_model=str)
+@router.delete("/user-dog-collars/{binding_id}", response_model=str)
 def delete_user_dog_collar(binding_id: int, db: Session = Depends(get_db)):
     try:
         db_manager.archive_user_dog_collar(db, binding_id)
