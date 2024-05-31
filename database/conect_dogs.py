@@ -220,9 +220,3 @@ class Task(Base):
     send_date = Column(TIMESTAMP, default='now()')
     completion_date = Column(TIMESTAMP, nullable=True)
     archived = Column(Boolean, default=False)
-
-
-rows = result.fetchall()
-
-for row in rows:
-    print(row)
