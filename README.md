@@ -52,17 +52,18 @@
 ```
 python3 -m venv venv
 ```
-
 3. Активируйте виртуальное окружение:
 ```
 source venv/bin/activate
 ```
-
-
 4. Установите зависимости из файла requirements.txt. Запустите команду:
 ```
 pip install -r requirements.txt 
 ```
+
+#### Доп. установки и настройки
+1. Настройте [ELK](https://github.com/vesninam/elk/blob/main/elk/README.md)
+2. Настройте [Filebeat](https://github.com/PecherskyDaniil/MyRepo)
 
 
 #### Запуск приложения
@@ -72,9 +73,6 @@ pip install -r requirements.txt
 uvicorn fast:app --reload
 ```
 3. Чтобы выйти из приложения, нажмите `Ctrl + C` в терминале, в котором оно запущено.
-4. Чтобы деактивировать виртуальное окружение, запустите команду:
-```
-deactivate
-```
+4. Чтобы деактивировать виртуальное окружение, запустите команду: `deactivate`
 
 
