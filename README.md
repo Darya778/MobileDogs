@@ -80,7 +80,7 @@ git clone URL
 ```
 uvicorn main:app --reload
 ```
-4. Запустите Filebeat в отдельном окне и проверить статус работы всех серверов 
+4. Запустите Filebeat в отдельном окне и проверить статус работы всех серверов (в файле `/etc/filebeat/filebeat.yml` в `filebeat.inputs` в `parth` ~/MobileDogs/src/log/*.json)
 ```
 sudo systemctl status elasticsearch.service
 sudo systemctl status kibana.service
