@@ -6,7 +6,7 @@ from random import randint
 # Инициализация логгера
 logger = logging.getLogger("app")
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler('../log/ylog_devices.json')
+handler = logging.FileHandler('log/log_devices.json')
 handler.setFormatter(ecs_logging.StdlibFormatter())
 logger.addHandler(handler)
 
