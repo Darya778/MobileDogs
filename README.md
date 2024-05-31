@@ -72,18 +72,25 @@ pip install -r requirements.txt
 ```
 sudo apt update
 sudo apt install git
-git clone https://github.com/Darya778/MobileDogs
+git clone URL
 ```
 3. Перейдите в каталог приложения (~/MobileDogs/src).
 4. Создайте новую виртуальную среду и активируйте:
 ```
-python -m venv .venv
+python -m venv venv
 source .venv/bin/activate
 ```
 5. Запустите приложение с помощью команды:
 ```
 uvicorn main:app --reload
 ```
-6. Чтобы выйти из приложения, нажмите `Ctrl + C` в терминале, в котором оно запущено. Чтобы деактивировать виртуальное окружение, запустите команду: `deactivate`
+6. Не забудьте запустить Filebeat и проверить статус работы всех серверов 
+```
+sudo systemctl status elasticsearch.service
+sudo systemctl status kibana.service
+sudo systemctl status logstash.service
+sudo filebeat -e
+```
+7. Чтобы выйти из приложения, нажмите `Ctrl + C` в терминале, в котором оно запущено. Чтобы деактивировать виртуальное окружение, запустите команду: `deactivate`
 
 
