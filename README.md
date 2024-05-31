@@ -84,7 +84,7 @@ source .venv/bin/activate
 ```
 uvicorn main:app --reload
 ```
-6. Не забудьте запустить Filebeat и проверить статус работы всех серверов 
+6. Запустите Filebeat в отдельном окне и проверить статус работы всех серверов 
 ```
 sudo systemctl status elasticsearch.service
 sudo systemctl status kibana.service
