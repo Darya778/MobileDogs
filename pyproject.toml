@@ -1,8 +1,12 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "MobileDogs"
-authors = [{name = "Kuzmin Ilia, Nikiforova Darya", email = "saharokbro@mail.ru, darya.n.2004@mail.ru"}]
-dynamic = ["version", "description"]
+authors = [{name = "Kuzmin Ilia", email = "saharokbro@mail.ru"},
+          {name = "Nikiforova Darya", email = "darya.n.2004@mail.ru"}]
+dynamic = ["version"]
+description = "The Mobile Dogs project is a system for tracking stray dogs using wearable devices (collars)."
+readme = "README.md"
+icense = {file = "LICENSE"}
