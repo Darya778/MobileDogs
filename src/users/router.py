@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(1, '/log')
+sys.path.insert(1, 'log')
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List, Tuple
