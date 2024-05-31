@@ -42,3 +42,4 @@ def delete_task(task_id: int, db: Session = Depends(get_db)):
     except Exception as e:
         log_message("error", "500 "+str(e))
         raise HTTPException(status_code=500, detail=str(e))
+
