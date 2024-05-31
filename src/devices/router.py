@@ -1,14 +1,15 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from typing import List, Tuple
-from ..database import get_db
-from ..database import db_manager
-from .schemas import *
+from database import get_db
+from database_manager import DatabaseManager
+from devices.schemas import *
 
 router = APIRouter()
+db_manager=DatabaseManager('postgresql+psycopg2://user1:useruser@rc1b-2pdgtp1xwhfy0i47.mdb.yandexcloud.net:6432/mob_dogs?sslmode=verify-full')
 
 # DogCollar Endpoints
-@router.post("/collars/", response_model=Tuple[int, str])
+@router.post("/collars", response_model=Tuple[int, str])
 def create_dog_collar(collar: DogCollarCreate, db: Session = Depends(get_db)):
     try:
         collar_id = db_manager.add_dog_collar(db, **collar.dict())
@@ -41,7 +42,7 @@ def get_all_dog_collars(db: Session = Depends(get_db)):
         raise HTTPException(status_code=500, detail=str(e))
 
 # Coordinate Endpoints
-@router.post("/coordinates/", response_model=Tuple[int, str])
+@router.post("/coordinates", response_model=Tuple[int, str])
 def create_coordinate(coordinate: CoordinateCreate, db: Session = Depends(get_db)):
     try:
         coordinate_id = db_manager.add_coordinate(db, **coordinate.dict())
@@ -65,7 +66,7 @@ def delete_coordinate(coordinate_id: int, db: Session = Depends(get_db)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.get("/track/", response_model=List[CoordinateBase])
+@router.get("/track", response_model=List[CoordinateBase])
 def get_track(
     collar_id: int = Query(..., description="Идентификатор ошейника"),
     start_time: str = Query(..., description="Начальное время периода"),
@@ -78,32 +79,8 @@ def get_track(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@router.post("/tasks/", response_model=Tuple[int,str])
-def create_task(task: TaskCreate, db: Session = Depends(get_db)):
-    try:
-        task_id=db_manager.add_task(db, **task.dict())
-        return task_id,"Задание успешно добавлено."
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.put("/tasks/{task_id}", response_model=str)
-def update_task(task_id: int, task_update: TaskUpdate, db: Session = Depends(get_db)):
-    try:
-        db_manager.update_task(db, task_id, **task_update.dict(exclude_unset=True))
-        return "Задание успешно обновлено."
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@router.delete("/tasks/{task_id}", response_model=str)
-def delete_task(task_id: int, db: Session = Depends(get_db)):
-    try:
-        db_manager.archive_task(db, task_id)
-        return "Задание успешно удалено."
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 # Эндпоинты для связи пользователя с ошейником (UserDogCollar)
-@router.post("/user-dog-collars/", response_model=Tuple[int,int,str])
+@router.post("/user-dog-collars", response_model=Tuple[int,int,str])
 def create_user_dog_collar(binding: UserDogCollarCreate, db: Session = Depends(get_db)):
     try:
         userid,dogid= db_manager.add_user_dog_collar(db, **binding.dict())
