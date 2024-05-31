@@ -58,34 +58,6 @@ class CoordinateUpdate(BaseModel):
     latitude: Optional[float] = None
     longitude: Optional[float] = None
     timestamp: Optional[str] = None
-  
-# Схемы для Task
-class TaskBase(BaseModel):
-    id_user_1: int
-    id_user_2: int
-    id_task: int
-    confirm: bool
-    send_date: datetime
-    completion_date: Optional[datetime]= None
-
-class TaskCreate(TaskBase):
-    pass
-
-class Task(TaskBase):
-    id: int
-    archived: bool
-
-    class Config:
-        from_attributes = True
-
-class TaskUpdate(BaseModel):
-    id_user_1: Optional[int] = None
-    id_user_2: Optional[int] = None
-    id_task: Optional[int] = None
-    confirm: Optional[bool] = None
-    send_date: Optional[datetime] = None
-    completion_date: Optional[datetime] = None
-    archived: Optional[bool] = None
 
 # Схемы для UserDogCollar
 class UserDogCollarBase(BaseModel):
@@ -116,5 +88,5 @@ class TrackQuery(BaseModel):
     collar_id: int
     start_time: datetime
     end_time: datetime
-  
+
 
