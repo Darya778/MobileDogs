@@ -15,3 +15,17 @@ src/devices/devices.md
 4. Описание функций для заданий
 
 src/tasks/tasks.md
+
+.. automodule:: mobiledogs
+  :members:
+
+.. toctree::
+  :maxdepth: 2
+  :caption: Contents:
+
+  README
+  requirements
+  src/database
+  src/devices/devices
+  src/tasks/tasks
+  src/users/users
