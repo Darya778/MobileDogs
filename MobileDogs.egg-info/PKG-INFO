@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: MobileDogs
+Version: 1.0
+Summary: The "Mobile Dogs" project is a system for tracking stray dogs using wearable devices (collars).
+Home-page: https://github.com/Darya778/MobileDogs
+Author: Kuzmin Ilia, Nikiforova Darya
+Author-email: saharokbro@mail.ru, darya.n.2004@mail.ru
+License: MIT
+Requires-Python: >=3
+Provides-Extra: test
+License-File: LICENSE
