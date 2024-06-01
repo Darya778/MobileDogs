@@ -1,4 +1,4 @@
-clyent==1.2.1
+clyent<=1.2.1
 ecs_logging<=2.1.0
 fastapi<=0.103.0
 Flask<=1.1.1
