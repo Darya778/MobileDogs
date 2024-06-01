@@ -1,0 +1,20 @@
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{\numberline {1}Идея проекта:}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Сценарии:}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Необходимые запросы для реализации сценариев:}{7}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Инструкции для установки зависимостей и запуска приложения:}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Установка зависимостей}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Доп. установки и настройки}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Запуск приложения}{10}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Описание базы данных}{11}{chapter.5}%
+\contentsline {section}{\numberline {5.1}\sphinxstylestrong {Функциональность:}}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}\sphinxstylestrong {Дополнительные замечания:}}{13}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Функции для работы с ошейниками}{15}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Дополнительные замечания:}{19}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Пример использования:}{19}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Функции для работы с заданиями}{21}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Дополнительные замечания:}{22}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Пример использования:}{22}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Функции для работы с пользователями}{23}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Дополнительные замечания:}{24}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Пример использования:}{24}{section.8.2}%
