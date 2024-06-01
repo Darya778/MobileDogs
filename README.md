@@ -63,6 +63,16 @@ source venv/bin/activate
 python -m pip install --upgrade pip
 pip install -r requirements.txt 
 ```
+5. Установите сертификаты и зависимости для postgreSQL:
+```
+mkdir -p ~/.postgresql && \
+wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+    --output-document ~/.postgresql/root.crt && \
+chmod 0600 ~/.postgresql/root.crt
+```
+```
+sudo apt update && sudo apt install --yes postgresql-client
+```
 
 #### Доп. установки и настройки
 1. Настройте [ELK](https://github.com/vesninam/elk/blob/main/elk/README.md)
